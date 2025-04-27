@@ -9,10 +9,7 @@ try {
     $quizDescription = $_POST["quizDescription"];
 
     // Prepare an SQL statement to insert a new quiz into the 'quizzes' table
-    $query = $connection->prepare(
-        "INSERT INTO quizzes (quizTitle, quizDescription) 
-         VALUES (:quizTitle, :quizDescription)"
-    );
+    $query = $connection->prepare("INSERT INTO quizzes (quizTitle, quizDescription) VALUES (:quizTitle, :quizDescription)");
 
     // Bind the input values to the SQL statement to prevent SQL injection
     $query->bindParam(":quizTitle", $quizTitle, PDO::PARAM_STR_CHAR);
@@ -27,5 +24,9 @@ try {
     ]);
     
 } catch (\Throwable $th) {
-    
+    // If there is any error, catch it and send a generic error message as JSON
+    echo json_encode([
+        // "error" => $th->getMessage(), // Uncomment this line during development for detailed error info
+        "message" => "something went wrong"
+    ]);
 }
