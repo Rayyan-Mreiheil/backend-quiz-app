@@ -25,7 +25,14 @@ try {
         $result[] = $user;
     }
 
-    
+    // Return the questions as a JSON response
+    echo json_encode([$result]);
+
+    // echo json_encode([
+    //     "message" => "These are all the questions that belong to quiz ID $quizID",
+    //     "result" => $result
+    // ]);
+
 } catch (\Throwable $th) {
    
 }
