@@ -13,7 +13,11 @@ try {
         "UPDATE quizzes SET quizDescription = :quizDescription WHERE quizeID = :quizeID"
     );
 
-   
+    // Bind the input values to the SQL statement to prevent SQL injection
+    $query->bindParam(":quizeID", $quizeID, PDO::PARAM_INT); // Quiz ID is an integer
+    $query->bindParam(":quizDescription", $quizDescription, PDO::PARAM_STR_CHAR); // Description is a string
+
+    
     
 } catch (\Throwable $th) {
     
