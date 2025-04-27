@@ -19,6 +19,8 @@ try {
     // Execute the prepared statement
     $query->execute();
 
+    // Fetch the first matching user from the database
+    $user = $query->fetch(PDO::FETCH_ASSOC);
     
     
 
