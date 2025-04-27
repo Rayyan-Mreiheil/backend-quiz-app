@@ -22,7 +22,10 @@ try {
     // Execute the prepared statement
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "User created successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
