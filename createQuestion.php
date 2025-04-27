@@ -12,6 +12,12 @@ try {
     // Prepare an SQL statement to insert a new question into the 'questions' table
     $query = $connection->prepare("INSERT INTO questions (quTitle, quScore, quizID) VALUES (:quTitle, :quScore, :quizID)");
 
+    // Bind the input values to the SQL statement to prevent SQL injection
+    $query->bindParam(":quTitle", $quTitle, PDO::PARAM_STR_CHAR); // Question title (string)
+    $query->bindParam(":quScore", $quScore, PDO::PARAM_INT);       // Question score (integer)
+    $query->bindParam(":quizID", $quizID, PDO::PARAM_INT);          // Quiz ID it belongs to (integer)
+
+    
     
 } catch (\Throwable $th) {
     
