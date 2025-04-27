@@ -13,7 +13,12 @@ try {
     // Bind the quiz ID to the SQL statement to prevent SQL injection
     $query->bindParam(":quizID", $quizID, PDO::PARAM_INT);
 
+    // Execute the prepared statement
+    $query->execute();
     
+    // Initialize an empty array to store the questions fetched from the database
+    $result = [];
+
     
 } catch (\Throwable $th) {
    
