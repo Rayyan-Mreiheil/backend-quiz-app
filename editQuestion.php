@@ -15,6 +15,9 @@ try {
     $query->bindParam(":quTitle", $quTitle, PDO::PARAM_STR_CHAR);  // Question title (string)
     $query->bindParam(":quID", $quID, PDO::PARAM_INT);              // Question ID (integer)
 
+    // Execute the prepared statement to update the question
+    $query->execute();
+
     
     
 } catch (\Throwable $th) {
