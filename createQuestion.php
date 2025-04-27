@@ -9,7 +9,9 @@ try {
     $quScore = $_POST["quScore"];
     $quizID = $_POST["quizID"];
 
-    
+    // Prepare an SQL statement to insert a new question into the 'questions' table
+    $query = $connection->prepare("INSERT INTO questions (quTitle, quScore, quizID) VALUES (:quTitle, :quScore, :quizID)");
+
     
 } catch (\Throwable $th) {
     
