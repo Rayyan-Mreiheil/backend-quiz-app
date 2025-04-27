@@ -16,6 +16,9 @@ try {
     $query->bindParam(":userEmail", $userEmail, PDO::PARAM_STR_CHAR);
     $query->bindParam(":userPassword", $userPassword, PDO::PARAM_STR_CHAR);
 
+    // Execute the prepared statement
+    $query->execute();
+
     
     
 
