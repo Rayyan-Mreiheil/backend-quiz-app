@@ -14,6 +14,10 @@ try {
          VALUES (:quizTitle, :quizDescription)"
     );
 
+    // Bind the input values to the SQL statement to prevent SQL injection
+    $query->bindParam(":quizTitle", $quizTitle, PDO::PARAM_STR_CHAR);
+    $query->bindParam(":quizDescription", $quizDescription, PDO::PARAM_STR_CHAR);
+
     
     
 } catch (\Throwable $th) {
