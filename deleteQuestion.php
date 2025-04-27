@@ -10,7 +10,11 @@ try {
     // Prepare an SQL statement to delete a question by its ID
     $query = $connection->prepare("DELETE FROM questions WHERE quID = :quID");
 
-   
+    // Bind the question ID to the SQL statement to prevent SQL injection
+    $query->bindParam(":quID", $quID, PDO::PARAM_INT);
+
+    
+    
 } catch (\Throwable $th) {
     
 }
