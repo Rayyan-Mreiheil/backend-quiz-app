@@ -19,6 +19,12 @@ try {
     // Initialize an empty array to store the questions fetched from the database
     $result = [];
 
+    // Fetch each question as an associative array and add it to the result array
+    while ($user = $query->fetch(PDO::FETCH_ASSOC)) {
+        // Use array push or simple array addition to store each fetched question
+        $result[] = $user;
+    }
+
     
 } catch (\Throwable $th) {
    
