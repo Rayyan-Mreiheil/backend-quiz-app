@@ -11,6 +11,10 @@ try {
     // Prepare an SQL statement to update the question title for a specific question ID
     $query = $connection->prepare("UPDATE questions SET quTitle = :quTitle WHERE quID = :quID");
 
+    // Bind the input values to the SQL statement to prevent SQL injection
+    $query->bindParam(":quTitle", $quTitle, PDO::PARAM_STR_CHAR);  // Question title (string)
+    $query->bindParam(":quID", $quID, PDO::PARAM_INT);              // Question ID (integer)
+
     
     
 } catch (\Throwable $th) {
