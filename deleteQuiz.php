@@ -16,7 +16,10 @@ try {
     // Execute the prepared statement
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You deleted the quiz successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
