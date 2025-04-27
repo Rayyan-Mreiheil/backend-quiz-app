@@ -12,5 +12,6 @@ try {
     // Create a new PDO (PHP Data Object) instance for database connection
     $connection = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $pass);
 } catch (\Throwable $e) {
-   
+    // Catch any error (exception) during connection and output it
+    echo $e;
 }
