@@ -13,6 +13,9 @@ try {
     // Bind the quiz ID to the SQL statement to prevent SQL injection
     $query->bindParam(":quizeID", $quizeID, PDO::PARAM_INT);
 
+    // Execute the prepared statement
+    $query->execute();
+
     
     
 } catch (\Throwable $th) {
