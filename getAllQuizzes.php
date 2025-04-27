@@ -23,5 +23,8 @@ try {
     echo json_encode($result);
 
 } catch (\Throwable $th) {
-    
+    // If any error occurs, catch it and send a generic error message
+    echo json_encode([
+        "message" => "something went wrong"
+    ]);
 }
