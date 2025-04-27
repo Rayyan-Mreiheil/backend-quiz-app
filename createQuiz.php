@@ -18,6 +18,9 @@ try {
     $query->bindParam(":quizTitle", $quizTitle, PDO::PARAM_STR_CHAR);
     $query->bindParam(":quizDescription", $quizDescription, PDO::PARAM_STR_CHAR);
 
+    // Execute the prepared statement
+    $query->execute();
+
     
     
 } catch (\Throwable $th) {
