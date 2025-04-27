@@ -10,6 +10,15 @@ try {
     // Execute the prepared statement
     $query->execute();
     
+    // Initialize an empty array to hold the results
+    $result = [];
+
+    // Fetch each quiz record as an associative array and add it to the result array
+    while ($user = $query->fetch(PDO::FETCH_ASSOC)) {
+        // You can use array_push($result, $user); or simply:
+        $result[] = $user;
+    }
+    
     
 } catch (\Throwable $th) {
     
