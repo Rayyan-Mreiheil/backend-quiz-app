@@ -19,7 +19,9 @@ try {
         $result[] = $user;
     }
     
-    
+    // Convert the result array to JSON format and send it as a response
+    echo json_encode($result);
+
 } catch (\Throwable $th) {
     
 }
