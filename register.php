@@ -11,7 +11,7 @@ try {
     $userRole = $_POST["userRole"];
 
     // Prepare an SQL statement to insert a new user into the 'users' table
-    $query = $connection->prepare("INSERT INTO users (userName, userEmail, userPassword, userRole)  VALUES (:userName, :userEmail, :userPassword, :userRole)");
+    $query = $connection->prepare("INSERT INTO users (userName, userEmail, userPassword, userRole) VALUES (:userName, :userEmail, :userPassword, :userRole)");
 
     // Bind the input values to the SQL statement to prevent SQL injection
     $query->bindParam(":userName", $userName, PDO::PARAM_STR_CHAR);
@@ -28,5 +28,9 @@ try {
     ]);
     
 } catch (\Throwable $th) {
-    
+    // If there is any error, catch it and send a generic error message as JSON
+    echo json_encode([
+        // "error" => $th->getMessage(), // (Optional) for debugging, shows the actual error
+        "message" => "Something went wrong"
+    ]);
 }
