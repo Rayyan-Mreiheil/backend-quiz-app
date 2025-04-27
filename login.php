@@ -37,5 +37,8 @@ try {
     }
 
 } catch (\Throwable $th) {
-    
+    // Catch any errors and return a generic error message
+    echo json_encode([
+        "message" => "something went wrong"
+    ]);
 }
