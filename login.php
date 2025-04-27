@@ -12,6 +12,10 @@ try {
     // Prepare an SQL statement to select a user matching the provided email and password
     $query = $connection->prepare("SELECT * FROM users WHERE userEmail = :userEmail AND userPassword = :userPassword");
 
+    // Bind the input values to the SQL statement to prevent SQL injection
+    $query->bindParam(":userEmail", $userEmail, PDO::PARAM_STR_CHAR);
+    $query->bindParam(":userPassword", $userPassword, PDO::PARAM_STR_CHAR);
+
     
     
 
