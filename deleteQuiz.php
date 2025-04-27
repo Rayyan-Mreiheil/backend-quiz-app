@@ -10,6 +10,9 @@ try {
     // Prepare an SQL statement to delete a quiz by its ID
     $query = $connection->prepare("DELETE FROM quizzes WHERE quizeID = :quizeID");
 
+    // Bind the quiz ID to the SQL statement to prevent SQL injection
+    $query->bindParam(":quizeID", $quizeID, PDO::PARAM_INT);
+
     
     
 } catch (\Throwable $th) {
