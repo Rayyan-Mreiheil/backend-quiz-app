@@ -13,7 +13,13 @@ try {
     // Bind the question ID to the SQL statement to prevent SQL injection
     $query->bindParam(":quID", $quID, PDO::PARAM_INT);
 
-    
+    // Execute the prepared statement to delete the question
+    $query->execute();
+
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You deleted the question successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
