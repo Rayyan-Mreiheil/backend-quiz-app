@@ -22,7 +22,19 @@ try {
     // Fetch the first matching user from the database
     $user = $query->fetch(PDO::FETCH_ASSOC);
     
-    
+    // Check if a user was found
+    if ($user) {
+        // If a user exists, return a success message as JSON
+        echo json_encode([
+            "message" => "Welcome, you have an account!",
+            // "user" => $user  // (Optional) send user data as well
+        ]);
+    } else {
+        // If no user found, return an error message
+        echo json_encode([
+            "message" => "Incorrect email or password."
+        ]);
+    }
 
 } catch (\Throwable $th) {
     
