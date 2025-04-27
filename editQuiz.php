@@ -20,8 +20,15 @@ try {
     // Execute the prepared statement
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You updated quiz information successfully!"
+    ]);
     
 } catch (\Throwable $th) {
-    
+    // If there is any error, catch it and send a generic error message as JSON
+    echo json_encode([
+        // "error" => $th->getMessage(), // (Optional) Uncomment for detailed error during development
+        "message" => "something went wrong"
+    ]);
 }
