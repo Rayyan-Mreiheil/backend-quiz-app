@@ -17,6 +17,9 @@ try {
     $query->bindParam(":quScore", $quScore, PDO::PARAM_INT);       // Question score (integer)
     $query->bindParam(":quizID", $quizID, PDO::PARAM_INT);          // Quiz ID it belongs to (integer)
 
+    // Execute the prepared statement
+    $query->execute();
+
     
     
 } catch (\Throwable $th) {
