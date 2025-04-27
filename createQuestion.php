@@ -20,7 +20,10 @@ try {
     // Execute the prepared statement
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You have inserted this new question successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
