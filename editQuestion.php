@@ -18,7 +18,10 @@ try {
     // Execute the prepared statement to update the question
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You updated the question information successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
