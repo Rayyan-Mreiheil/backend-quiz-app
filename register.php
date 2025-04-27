@@ -19,6 +19,10 @@ try {
     $query->bindParam(":userPassword", $userPassword, PDO::PARAM_STR_CHAR);
     $query->bindParam(":userRole", $userRole, PDO::PARAM_STR_CHAR);
 
+    // Execute the prepared statement
+    $query->execute();
+
+    
     
 } catch (\Throwable $th) {
     
