@@ -24,5 +24,9 @@ try {
     ]);
     
 } catch (\Throwable $th) {
-    
+    // If any error occurs, catch it and send a generic error message
+    echo json_encode([
+        // "error" => $th->getMessage(),  //  Use for detailed error messages during development
+        "message" => "something went wrong"
+    ]);
 }
