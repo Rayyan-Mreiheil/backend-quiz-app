@@ -17,6 +17,9 @@ try {
     $query->bindParam(":quizeID", $quizeID, PDO::PARAM_INT); // Quiz ID is an integer
     $query->bindParam(":quizDescription", $quizDescription, PDO::PARAM_STR_CHAR); // Description is a string
 
+    // Execute the prepared statement
+    $query->execute();
+
     
     
 } catch (\Throwable $th) {
