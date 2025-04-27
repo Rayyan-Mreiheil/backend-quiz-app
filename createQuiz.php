@@ -21,7 +21,10 @@ try {
     // Execute the prepared statement
     $query->execute();
 
-    
+    // Send a success message back as JSON
+    echo json_encode([
+        "message" => "You have inserted this quiz successfully!"
+    ]);
     
 } catch (\Throwable $th) {
     
